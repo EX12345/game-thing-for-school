@@ -29,9 +29,12 @@ function draw() {
   }
   //makes enemy if there's less than a certain number, let's just set it to 1 for now
   if(ec < 2) {
-    //makes enemies on the bottom side, planning on doing it on all sides, but not yet.
-    ex.push(random(10,590));
-    ey.push(600);
+    //extremely bad temporary solution for deftermining witch side it goes on, delete later
+    let side = random(1,4);
+    if (side == 1) {ex.push(random(0,600)); ey.push(0);}
+    if (side == 2) {ex.push(600); ey.push(random(0,600));}
+    if (side == 3) {ex.push(random(0,600)); ey.push(600);}
+    if (side == 4) {ex.push(600); ey.push(random(0,600));}
     ec++
   }
   //loops through ex and ey and makes enemies at those places, also make it move enemies
