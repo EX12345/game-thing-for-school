@@ -31,7 +31,6 @@ function draw() {
   if(ec < 2) {
     //extremely bad temporary solution for deftermining witch side it goes on, delete later
     let side = int(random(1,4));
-    text(side, 10, 30);
     if (side == 1) {ex.push(random(0,600)); ey.push(0);}
     if (side == 2) {ex.push(600); ey.push(random(0,600));}
     if (side == 3) {ex.push(random(0,600)); ey.push(600);}
