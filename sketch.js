@@ -30,7 +30,8 @@ function draw() {
   //makes enemy if there's less than a certain number, let's just set it to 1 for now
   if(ec < 2) {
     //extremely bad temporary solution for deftermining witch side it goes on, delete later
-    let side = random(1,4);
+    let side = int(random(1,4));
+    text(side, 10, 30);
     if (side == 1) {ex.push(random(0,600)); ey.push(0);}
     if (side == 2) {ex.push(600); ey.push(random(0,600));}
     if (side == 3) {ex.push(random(0,600)); ey.push(600);}
@@ -40,9 +41,12 @@ function draw() {
   //loops through ex and ey and makes enemies at those places, also make it move enemies
   for(let i = 0; ec > i; i++) {
     circle(ex[i], ey[i], 10);
-    //only moving enimies straight up for now
-    ey[i]--;
+    if(ex[i] > 300){ex[i]--;}
+    else{ex[i]++;}
+    if(ey[i] > 300){ey[i]--;}
+    else{ey[i]++;}
   }
+  
 }
 //toggles leash
 function mouseClicked() {
