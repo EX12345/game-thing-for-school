@@ -27,7 +27,7 @@ function draw() {
     x = x - mx;
     y = y - my;
   }
-  //makes enemy if there's less than a certain number, let's just set it to 1 for now
+  //makes enemy if there's less than a certain number, let's just set it to 2 for now
   if(ec < 2) {
     //extremely bad temporary solution for deftermining witch side it goes on, delete later
     let side = int(random(1,4));
@@ -44,6 +44,12 @@ function draw() {
     else{ex[i]++;}
     if(ey[i] > 300){ey[i]--;}
     else{ey[i]++;}
+    let d = dist(x,y,ex[i],ey[i]);
+    if (d <= 15) {
+      ex.splice(i,1);
+      ey.splice(i,1);
+      ec--
+    }
   }
   
 }
