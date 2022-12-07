@@ -37,18 +37,13 @@ function draw() {
     if (side == 4) {ex.push(600); ey.push(random(0,600));}
     ec++
   }
-  //loops through ex and ey and makes enemies at those places, also make it move enemies
+  //enemy loop
   for(let i = 0; ec > i; i++) {
     circle(ex[i], ey[i], 10);
-    if(ex[i] > 300){ex[i]--;}
-    else{ex[i]++;}
-    if(ey[i] > 300){ey[i]--;}
-    else{ey[i]++;}
+    eMovement(i);
     let d = dist(x,y,ex[i],ey[i]);
     if (d <= 15) {
-      ex.splice(i,1);
-      ey.splice(i,1);
-      ec--
+    eDie(i)
     }
   }
   
@@ -61,4 +56,17 @@ function mouseClicked() {
     my = y-(mouseY+y)*0.5;
   }
  leash = !leash
+}
+
+function eMovement (i) {
+   if(ex[i] > 300){ex[i]--;}
+    else{ex[i]++;}
+    if(ey[i] > 300){ey[i]--;}
+    else{ey[i]++;}
+}
+function eDie (i) {
+    ex.splice(i,1);
+    ey.splice(i,1);
+    ec--
+    
 }
