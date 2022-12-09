@@ -56,7 +56,10 @@ function draw() {
     }
     let bbd = dist(x,y,300,300);
     if(bbd <= 25){
-      hp--;
+      hp-=0.1;
+      //floating point repellant
+      hp = int(hp*10);
+      hp = hp/10;
     }
   }
   //end screen
@@ -98,6 +101,6 @@ function eDie (i) {
 
 function eBase (i) {
     score -= 20;
-    hp--;
+    hp -= 3;
     eDie(i);
 }
