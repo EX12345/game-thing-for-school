@@ -1,6 +1,6 @@
 //defines x and y of ball
-let x = 300;
-let y = 300;
+let x = 100;
+let y = 100;
 ///momentum of ball
 let mx = 0;
 let my = 0;
@@ -20,6 +20,8 @@ function setup() {
 function draw() {
   background(220);
   circle(x,y,20);
+  circle(300,300,30);
+  text(hp+"/100",275,275);
   text(score,10,30);
   if(leash){
   x = (mouseX+x)*0.5;
@@ -49,8 +51,12 @@ function draw() {
     eDie(i)
     }
       let ebd = dist(300,300,ex[i],ey[i]);
-  if (ebd <= 5) {
+  if (ebd <= 20) {
     eBase(i)
+    }
+    let bbd = dist(x,y,300,300);
+    if(bbd <= 25){
+      hp--;
     }
   }
   
