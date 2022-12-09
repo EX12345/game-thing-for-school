@@ -19,8 +19,10 @@ function setup() {
 
 function draw() {
   background(220);
+  fill(255);
   circle(x,y,20);
   circle(300,300,30);
+  fill(0);
   text(hp+"/100",275,275);
   text(score,10,30);
   if(leash){
@@ -44,6 +46,7 @@ function draw() {
   }
   //enemy loop
   for(let i = 0; ec > i; i++) {
+    fill(255,0,0);
     circle(ex[i], ey[i], 10);
     eMovement(i);
     let d = dist(x,y,ex[i],ey[i]);
@@ -87,10 +90,10 @@ function mouseClicked() {
 }
 
 function eMovement (i) {
-   if(ex[i] > 300){ex[i] -= 1+score/500;}
-    else{ex[i] += 1+score/500;}
-    if(ey[i] > 300){ey[i] -= 1+score/500;}
-    else{ey[i] += 1+score/500;}
+   if(ex[i] > 300){ex[i] -= 1+score/1000;}
+    else{ex[i] += 1+score/1000;}
+    if(ey[i] > 300){ey[i] -= 1+score/1000;}
+    else{ey[i] += 1+score/1000;}
 }
 function eDie (i) {
     ex.splice(i,1);
