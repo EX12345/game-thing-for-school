@@ -90,10 +90,10 @@ function mouseClicked() {
 }
 
 function eMovement (i) {
-   if(ex[i] > 300){ex[i] -= 1+score/1000;}
-    else{ex[i] += 1+score/1000;}
-    if(ey[i] > 300){ey[i] -= 1+score/1000;}
-    else{ey[i] += 1+score/1000;}
+   if(ex[i] > 300){ex[i] -= 0.75+score/500;}
+    else{ex[i] += 0.75+score/500;}
+    if(ey[i] > 300){ey[i] -=0.75+score/500;}
+    else{ey[i] +=0.75+score/500;}
 }
 function eDie (i) {
     ex.splice(i,1);
