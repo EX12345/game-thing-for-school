@@ -33,7 +33,7 @@ function draw() {
     y = y - my;
   }
   //makes enemy if there's less than a certain number, let's just set it to 2 for now
-  if(ec < 1+score/100) {
+  if(ec < 1+score/200) {
     //extremely bad temporary solution for deftermining witch side it goes on, delete later
     let side = int(random(1,4));
     if (side == 1) {ex.push(random(0,600)); ey.push(0);}
@@ -59,6 +59,18 @@ function draw() {
       hp--;
     }
   }
+  //end screen
+  if(hp <= 0){
+    fill(0);
+    square(0,0,1000);
+    fill(255);
+    textAlign(CENTER);
+    textSize(40);
+    text("GAME OVER",300,300);
+    textSize(20);
+    text("Final score: "+ score,300,330);
+    noLoop();
+  }
   
 }
 //toggles leash
@@ -72,10 +84,10 @@ function mouseClicked() {
 }
 
 function eMovement (i) {
-   if(ex[i] > 300){ex[i] -= 1+score/1000;}
-    else{ex[i] += 1+score/1000;}
-    if(ey[i] > 300){ey[i] -= 1+score/1000;}
-    else{ey[i] += 1+score/1000;}
+   if(ex[i] > 300){ex[i] -= 1+score/500;}
+    else{ex[i] += 1+score/500;}
+    if(ey[i] > 300){ey[i] -= 1+score/500;}
+    else{ey[i] += 1+score/500;}
 }
 function eDie (i) {
     ex.splice(i,1);
