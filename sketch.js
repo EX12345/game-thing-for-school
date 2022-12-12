@@ -50,7 +50,7 @@ function draw() {
     circle(ex[i], ey[i], 10);
     eMovement(i);
     let d = dist(x,y,ex[i],ey[i]);
-    if (d <= 15) {
+    if (d <= 15 && !leash) {
     eDie(i)
     }
       let ebd = dist(300,300,ex[i],ey[i]);
