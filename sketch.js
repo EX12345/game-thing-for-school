@@ -105,5 +105,8 @@ function eDie (i) {
 function eBase (i) {
     score -= 20;
     hp -= 3;
+    //floating point repellant
+    hp = int(hp*10);
+    hp = hp/10;
     eDie(i);
 }
