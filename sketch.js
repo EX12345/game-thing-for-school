@@ -12,6 +12,7 @@ const ey = [];
 let ec = 0;
 let score = 0;
 let hp = 100;
+let bc = 220;
 //setup i didn’t do anything w/
 function setup() {
   createCanvas(600, 600);
@@ -19,8 +20,9 @@ function setup() {
 
 function draw() {
   background(220);
-  fill(255);
+  fill(bc);
   circle(x,y,20);
+  fill(255);
   circle(300,300,30);
   fill(0);
   text(hp+"/100",275,275);
@@ -85,7 +87,9 @@ function mouseClicked() {
     //sets momentum
     mx = x-(mouseX+x)*0.5;
     my = y-(mouseY+y)*0.5;
+    bc = 255;
   }
+  else{bc = 220;}
  leash = !leash
 }
 
