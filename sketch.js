@@ -25,10 +25,13 @@ function setup() {
 
 function draw() {
   background(220);
+  //draws ball
   fill(bc);
   circle(x,y,20);
+  //draws base
   fill(255);
   circle(300,300,30);
+  //draws text
   fill(0);
   text(hp+"/100",275,275);
   text(score,10,30);
@@ -42,9 +45,9 @@ function draw() {
     x = x - mx;
     y = y - my;
   }
-  //makes enemy if there's less than a certain number, let's just set it to 2 for now
+  //makes enemy if there's less than a certain number depending on score
   if(ec < 1+score/200) {
-    //extremely bad temporary solution for deftermining witch side it goes on, delete later
+    //extremely bad temporary solution for deftermining witch side it goes on, delete later (I wont, but it'd be better if I did)
     let side = int(random(1,4));
     if (side == 1) {ex.push(random(0,600)); ey.push(0);}
     if (side == 2) {ex.push(0); ey.push(random(0,600));}
@@ -53,7 +56,8 @@ function draw() {
     ec++
   }
   //enemy loop
-  for(let i = 0; ec > i; i++) {
+  for(let i = 0; ec > i; i++) { //loops thru the whole enemy list doing stuff to each enemy
+    //draws enemy i to the screen
     fill(255,0,0);
     circle(ex[i], ey[i], 10);
     eMovement(i);
@@ -75,14 +79,17 @@ function draw() {
   }
   //end screen
   if(hp <= 0){
+    //blacks out screen
     fill(0);
     square(0,0,1000);
+    //dispays text
     fill(255);
     textAlign(CENTER);
     textSize(40);
     text("GAME OVER",300,300);
     textSize(20);
     text("Final score: "+ score,300,330);
+    //stops the draw function from looping, thus halting the program
     noLoop();
   }
   
@@ -98,8 +105,9 @@ function mouseClicked() {
   else{bc = 220; sm = 1;}
  leash = !leash;
 }
-
+//enemy stuff I didn't put in the enemy loop because it was getting a too much spaghetti, even by my standards 
 function eMovement (i) {
+  //weird hacky "temporary" solution for enemy movement, and by that I mean it works and that means I'm never looking at the code ever again
    if(ex[i] > 300){ex[i] -= 0.75+score/500;}
     else{ex[i] += 0.75+score/500;}
     if(ey[i] > 300){ey[i] -=0.75+score/500;}
