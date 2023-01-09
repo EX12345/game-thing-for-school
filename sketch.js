@@ -10,9 +10,14 @@ let leash = false;
 const ex = [];
 const ey = [];
 let ec = 0;
+//defines score
 let score = 0;
+//defines hp
 let hp = 100;
-let bc = 220;
+//defines ball color
+let bc = 255;
+//defines score multiplyer
+let sm = 1;
 //setup i didn’t do anything w/
 function setup() {
   createCanvas(600, 600);
@@ -27,6 +32,7 @@ function draw() {
   fill(0);
   text(hp+"/100",275,275);
   text(score,10,30);
+  text(sm + "x", 300, 30);
   if(leash){
   x = (mouseX+x)*0.5;
   y = (mouseY+y)*0.5;
@@ -89,8 +95,8 @@ function mouseClicked() {
     my = y-(mouseY+y)*0.5;
     bc = 255;
   }
-  else{bc = 220;}
- leash = !leash
+  else{bc = 220; sm = 1;}
+ leash = !leash;
 }
 
 function eMovement (i) {
@@ -102,12 +108,14 @@ function eMovement (i) {
 function eDie (i) {
     ex.splice(i,1);
     ey.splice(i,1);
-    ec--
-    score += 10;
+    ec--;
+    score += 10*sm;
+    sm++
 }
 
 function eBase (i) {
-    score -= 20;
+    sm--;
+    score -= 10*sm;
     hp -= 3;
     //floating point repellant
     hp = int(hp*10);
